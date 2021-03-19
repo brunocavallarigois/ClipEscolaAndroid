@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "444839426715-0oqsosfc57dlimpuv0klp13jmje5eqcn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brunogois.clipescolatest",
+            "certificate_hash": "16875dd377ea26599b9855a9f88a764d48b653af"
+          }
+        },
+        {
           "client_id": "444839426715-v17elr1o41r8v3jbaf1ngneboa6v1pi8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

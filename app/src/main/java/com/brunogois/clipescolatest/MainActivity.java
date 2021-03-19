@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     .load(Shared.getInstance().user.foto)
                     .into(profile_avatar);
 
+        } else if (Shared.getInstance().imgProfileCarregado != null) {
+            profile_avatar.setImageURI(null);
+            profile_avatar.setImageURI(Shared.getInstance().imgProfileCarregado);
         } else {
             profile_avatar.setImageResource(R.drawable.ic_person_24dp);
         }
@@ -73,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        if (Shared.getInstance().user.foto != null && Shared.getInstance().user.foto.equals("") == false) {
+            Glide.with(this)
+                    .load(Shared.getInstance().user.foto)
+                    .into(profile_avatar);
 
+        } else if (Shared.getInstance().imgProfileCarregado != null) {
+            profile_avatar.setImageURI(null);
+            profile_avatar.setImageURI(Shared.getInstance().imgProfileCarregado);
+        } else {
+            profile_avatar.setImageResource(R.drawable.ic_person_24dp);
+        }
+    }
 }

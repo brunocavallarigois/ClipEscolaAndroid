@@ -49,7 +49,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            showMEssage();
+                            showMessage();
                         } else {
                             String erroMsg = task.getException().getMessage();
                             if (task.getException() instanceof FirebaseAuthInvalidUserException) {
@@ -84,7 +84,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         return valid;
     }
 
-    private void showMEssage() {
+    private void showMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ForgotPasswordActivity.this);
         View dialog = getLayoutInflater().inflate(R.layout.mensagem_dialog, null);
         final TextView tituloMensagem = (TextView) dialog.findViewById(R.id.titulo_mensagem);

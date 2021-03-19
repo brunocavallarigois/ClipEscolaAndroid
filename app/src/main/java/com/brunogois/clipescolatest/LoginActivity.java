@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
@@ -224,6 +226,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
+                System.out.println("Google sign in failed " + e.getMessage());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -287,34 +290,10 @@ public class LoginActivity extends AppCompatActivity {
             if (isNewUser) {
                 mDatabase.child("users").child(user.getUid()).setValue(Shared.getInstance().user);
                 welcomeProgress.setVisibility(View.INVISIBLE);
-                goToNextPage();
-            } else {
-                mDatabase.child("users").child(user.getUid());
-                ValueEventListener userListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get Post object and use the values to update the UI
-                        User usuario = dataSnapshot.getValue(User.class);
-                        usuario.id = dataSnapshot.getKey();
-                        Shared.getInstance().user = usuario;
 
-                        FirebaseManager.preencherUserAuthProvider(user);
-
-                        welcomeProgress.setVisibility(View.INVISIBLE);
-                        goToNextPage();
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        // Getting Post failed, log a message
-                        Log.w("WelcomeActivity", "loadPost:onCancelled", databaseError.toException());
-                        // ...
-                        welcomeProgress.setVisibility(View.INVISIBLE);
-                    }
-                };
-                mDatabase.addListenerForSingleValueEvent(userListener);
             }
 
+            goToNextPage();
         } else {
             welcomeProgress.setVisibility(View.INVISIBLE);
         }

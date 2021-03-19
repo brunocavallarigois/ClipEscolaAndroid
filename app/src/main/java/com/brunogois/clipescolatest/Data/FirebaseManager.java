@@ -89,7 +89,13 @@ public class FirebaseManager {
 
     }
 
-    public static void uploadBitmapImageToStorage(Bitmap bitmap, StorageReference storageReference) {
+    public static void uploadBitmapImageToStorage(Bitmap bitmap, final FirebaseUser currentUser) {
+
+        StorageReference storageReference = Shared.getInstance().mainStorageReference
+                .child("users").child(currentUser.getUid()).child("perfil").child("profile");
+        final DatabaseReference databaseProfileImageRef = Shared.getInstance().mainDataBaseReference
+                .child("users").child(currentUser.getUid()).child("foto");
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
@@ -103,8 +109,16 @@ public class FirebaseManager {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                // ...
+                Task<Uri> firebaseUri = taskSnapshot.getStorage().getDownloadUrl();
+                firebaseUri.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        String url = uri.toString();
+                        databaseProfileImageRef.setValue(url);
+                        Shared.getInstance().user.foto = url;
+                    }
+                });
             }
         });
     }
