@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ClipEscolaTest</string>
+
+    <string-array name="tipos_sexo">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+
+    <string-array name="tipos_estado_civil">
+        <item>Solteiro</item>
+        <item>Casado</item>
+        <item>Viúvo</item>
+        <item>Separado Judicialmente</item>
+        <item>Divorciado</item>
+    </string-array>
+
+</resources>

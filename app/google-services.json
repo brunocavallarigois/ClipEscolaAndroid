@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "444839426715",
+    "firebase_url": "https://clipescolatest-default-rtdb.firebaseio.com",
+    "project_id": "clipescolatest",
+    "storage_bucket": "clipescolatest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444839426715:android:dcf0c42509baef6f36e43e",
+        "android_client_info": {
+          "package_name": "com.brunogois.clipescolatest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444839426715-v17elr1o41r8v3jbaf1ngneboa6v1pi8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brunogois.clipescolatest",
+            "certificate_hash": "8d000eb4321c71b26ecd10f31d09db7778943eb8"
+          }
+        },
+        {
+          "client_id": "444839426715-upljkm3p2g39oeutr8k48pv00rrjao1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJc4xQHwRvlvUPDphYYd3XAsOc8JcQxW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444839426715-upljkm3p2g39oeutr8k48pv00rrjao1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

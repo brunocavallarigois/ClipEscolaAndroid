@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ECEDEF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="60dp"
+    tools:context=".EditActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient_background">
+
+        <TextView
+            android:id="@+id/editar_perfil_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Editar Perfil"
+            android:textColor="#FFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            android:onClick="onVoltar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back_white_24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/editar_perfil_container_campos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="15dp"
+                android:background="@drawable/container_white_background"
+                android:orientation="vertical"
+                android:paddingBottom="50dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editar_avatar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_person_24dp"
+                    app:civ_border_color="#189DAE"
+                    app:civ_border_width="2dp"
+                    android:clickable="true"
+                    android:onClick="onPickImage"/>
+
+                <RelativeLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-15dp"
+                    android:clickable="true"
+                    android:onClick="onPickImage"
+                    android:background="@drawable/button_background_white">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/ic_edit_gray_24dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/editar_txt_nome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Nome"
+                    android:textColor="#032A45" />
+
+                <EditText
+                    android:id="@+id/editar_nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edittext_dados_background"
+                    android:inputType="text"
+                    android:maxLength="60"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/editar_txt_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="E-mail"
+                    android:textColor="#032A45" />
+
+
+                <EditText
+                    android:id="@+id/editar_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edittext_dados_background"
+                    android:maxLength="10"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/editar_txt_telefone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Telefone"
+                    android:textColor="#032A45" />
+
+                <EditText
+                    android:id="@+id/editar_telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edittext_dados_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/editar_txt_estadocivil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Estado Civil"
+                    android:textColor="#032A45" />
+
+                <Spinner
+                    android:id="@+id/editar_estadocivil"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="150dp"
+                    android:background="@drawable/edittext_dados_background"
+                    />
+
+                <TextView
+                    android:id="@+id/editar_txt_sexo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Sexo"
+                    android:textColor="#032A45" />
+
+                <Spinner
+                    android:id="@+id/editar_sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="150dp"
+                    android:background="@drawable/edittext_dados_background"
+                    />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/editar_perfil_btn_salvar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/editar_perfil_container_campos"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-25dp"
+                android:background="@drawable/button_background"
+                android:onClick="onClick"
+                android:text="salvar"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>
