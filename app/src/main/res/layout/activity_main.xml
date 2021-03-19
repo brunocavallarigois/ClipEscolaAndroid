@@ -32,6 +32,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/sair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:text="Sair"
+                android:textColor="#FFF"
+                android:clickable="true"
+                android:onClick="onClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_avatar"
